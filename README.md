@@ -52,6 +52,25 @@
  * скриншоты с успешно собранными сборками.
 ### Решение 2
 
+.gitlab-ci.yml
+```
+stages:
+  - test
+  - build
+
+test:
+  stage: test
+  image: golang:1.17
+  script: 
+   - go test .
+
+build:
+  stage: build
+  image: docker:latest
+  script:
+   - docker build .
+```
+![alt text](https://github.com/fin4457/8-03-hw/blob/main/build.jpg)
  
  
 ---
