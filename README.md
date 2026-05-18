@@ -63,11 +63,9 @@
    systemctl enable zabbix-server zabbix-agent apache2
    ```
 
-В качестве ответа в репозиторий шаблона с решением добавьте скриншоты с настройками раннера в проекте.
-### Решение 1
-![alt text](https://github.com/fin4457/8-03-hw/blob/main/runner.jpg)
-![alt text](https://github.com/fin4457/8-03-hw/blob/main/runner2.jpg)
-![alt text](https://github.com/fin4457/8-03-hw/blob/main/my_project.jpg)
+Авторизация в админке Zabbix.
+![alt text](https://github.com/fin4457/zabbix_1/blob/main/img/zabbix.jpg)
+
 
 
 ---
