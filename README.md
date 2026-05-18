@@ -1,4 +1,4 @@
-# Домашнее задание к занятию "`GitLab`" - `Федоров Дмитрий`
+# Домашнее задание к занятию "`Система мониторинга Zabbix`" - `Федоров Дмитрий`
 
 
 ### Инструкция по выполнению домашнего задания
@@ -23,12 +23,45 @@
 ---
 
 ### Задание 1
+Установите Zabbix Server с веб-интерфейсом.
 
-**Что нужно сделать:**
+Выбрана версия установки Zabbix 7.4 на Ubuntu 24.04
 
-1. Разверните GitLab локально, используя Vagrantfile и инструкцию, описанные в [этом репозитории](https://github.com/netology-code/sdvps-materials/tree/main/gitlab).   
-2. Создайте новый проект и пустой репозиторий в нём.
-3. Зарегистрируйте gitlab-runner для этого проекта и запустите его в режиме Docker. Раннер можно регистрировать и запускать на той же виртуальной машине, на которой запущен GitLab.
+1. Откроем новую сессию с root-привилегиями.
+   ```
+   sudo -s  
+   ```
+2. Установим PostgresSQL
+   ```
+   apt install postgresql postgresql-contrib
+   ```
+2. Установим репозиторий Zabbix
+   ```
+   wget https://repo.zabbix.com/zabbix/7.4/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.4+ubuntu24.04_all.deb
+   dpkg -i zabbix-release_latest_7.4+ubuntu24.04_all.deb
+   apt update
+   ```
+3. Установим Zabbix сервер, веб-интерфейс и агент
+   ```
+   apt install zabbix-server-pgsql zabbix-frontend-php php8.3-pgsql zabbix-apache-conf zabbix-sql-scripts zabbix-agent
+   ```
+4. Создадим базу данных. Установим и запустим сервер базы данных.
+   ```
+   sudo -u postgres createuser --pwprompt zabbix
+   sudo -u postgres createdb -O zabbix zabbix
+   ```
+   Импортируем начальную схему и данные
+   ```
+   zcat /usr/share/zabbix/sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psql zabbix
+   ```
+6. Настроим базу данных для Zabbix сервера
+   Введем раннее созданный пароль к БД в файле /etc/zabbix/zabbix_server.conf
+   DBPassword=password
+7. Запустим процессы Zabbix сервера и агента и настроим их запуск при загрузке ОС
+   ```
+   systemctl restart zabbix-server zabbix-agent apache2
+   systemctl enable zabbix-server zabbix-agent apache2
+   ```
 
 В качестве ответа в репозиторий шаблона с решением добавьте скриншоты с настройками раннера в проекте.
 ### Решение 1
