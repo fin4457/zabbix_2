@@ -102,8 +102,8 @@
 2. Cкриншот лога zabbix agent, где видно, что он работает с сервером
    ![alt text](https://github.com/fin4457/zabbix_1/blob/main/img/log.jpg)
 3. Скриншот раздела Monitoring > Latest data для обоих хостов, где видны поступающие от агентов данные.
-   ![alt text](https://github.com/fin4457/zabbix_1/blob/main/img/zabbix server.jpg)
-   ![alt text](https://github.com/fin4457/zabbix_1/blob/main/img/test machine.jpg)
+   ![alt text](https://github.com/fin4457/zabbix_1/blob/main/img/zabbix_server.jpg)
+   ![alt text](https://github.com/fin4457/zabbix_1/blob/main/img/test_machine.jpg)
 
 
 ---
