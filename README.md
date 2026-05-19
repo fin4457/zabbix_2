@@ -80,7 +80,9 @@
    sudo apt install zabbix-agent2
    ```
 2. Добавим Zabbix Server в список разрешенных серверов ваших Zabbix Agentов.
+   ```
    sudo nano /etc/zabbix/zabbix-agent2.conf
+   ```
    найдем строку Server= и введем адрес нашего сервера Zabbix
 
    ```
