@@ -39,7 +39,7 @@
 4. Создайте Item который будет собирать информацию об загрузке RAM в процентах
 
 #### Cкриншот страницы шаблона
- ![alt text](https://github.com/fin4457/zabbix_1/blob/main/img/my_templates.jpg)
+ ![alt text](https://github.com/fin4457/zabbix_2/blob/main/img/my_templates.jpg)
 
  ---
 
